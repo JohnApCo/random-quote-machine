@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/JohnApCo/javascript-calculator/main/public/img/Random-Quote-Machine.png?raw=true"></img>
+<img src="https://github.com/JohnApCo/random-quote-machine/blob/main/public/img/Random-Quote-Machine.png?raw=true"></img>
 
 <h1 align="center">Random Quote Machine</h1>
 
