@@ -1,38 +1,197 @@
-.App {
-  text-align: center;
+/* ******************** Fluid Reset ******************** */
+:root {
+  --step--2: clamp(0.8rem, calc(0.85rem + -0.05vw), 0.84rem);
+  --step--1: clamp(0.94rem, calc(0.93rem + 0.08vw), 1rem);
+  --step-0: clamp(1.06rem, calc(1.01rem + 0.25vw), 1.25rem);
+  --step-1: clamp(1.2rem, calc(1.1rem + 0.5vw), 1.56rem);
+  --step-2: clamp(1.35rem, calc(1.18rem + 0.82vw), 1.95rem);
+  --step-3: clamp(1.51rem, calc(1.26rem + 1.26vw), 2.44rem);
+  --step-4: clamp(1.7rem, calc(1.34rem + 1.83vw), 3.05rem);
+  --step-5: clamp(1.91rem, calc(1.4rem + 2.58vw), 3.82rem);
+}
+/* ******************** Custom Properties ******************** */
+:root {
+  --dark: #1f1f1f;
+  --always-dark: #1f1f1f;
+  --white: #fff;
+  --always-white: #fff;
+  --gray-light: #f2f2f2;
+  --always-gray-light: #f2f2f2;
+  --orange: #fb6d43;
+  --blue: #08c;
+  --text-color: #333;
+  --always-text-color: #333;
+  --font: "Raleway";
+  --container-lg: 1200px;
+  --container-md: 992px;
+  --container-sm: 780px;
+
+  --primary-main: #01adfc;
+  --primary-dark: #053b7a;
+  --gray-700: #424242;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root.dark-mode {
+  --dark: #fff;
+  --white: #1f1f1f;
+  --gray-light: #2f2f2f;
+  --text-color: #eee;
+}
+/* ******************** Reset CSS ******************** */
+html {
+  box-sizing: border-box;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-.App-header {
-  background-color: #282c34;
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+  background-color: var(--white);
+  font: 400 var(--step-0) / 1.6 var(--font), sans-serif;
+  text-rendering: optimizeSpeed;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ******************** Headings *********************/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0.5em 0;
+}
+
+h1,
+.fluid-5 {
+  font-size: var(--step-5);
+}
+
+h2,
+.fluid-4 {
+  font-size: var(--step-4);
+}
+
+h3,
+.fluid-3 {
+  font-size: var(--step-3);
+}
+
+h4,
+.fluid-2 {
+  font-size: var(--step-2);
+}
+
+h5,
+.fluid-1 {
+  font-size: var(--step-1);
+}
+
+h6,
+.fluid-0 {
+  font-size: var(--step-0);
+}
+
+/******************** Cardboard *********************/
+.App {
+  text-align: center;
+  background-color: var(--primary-dark);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: background-color 1s ease-out;
 }
 
-.App-link {
-  color: #61dafb;
+.wrapper {
+  width: calc(var(--container-lg) / 2);
+  max-width: 95%;
+  background-color: var(--white);
+  padding: 1.75em 2.25em;
+  border-radius: 0.5em;
+  transition: color 1s ease-out;
 }
 
-@keyframes App-logo-spin {
+.content {
+  border-bottom: thin solid var(--gray-700);
+  margin-bottom: 1em;
+  transition: border-color 1s ease-out;
+}
+
+.divider {
+  border-bottom: thin solid var(--gray-700);
+  margin-bottom: 1em;
+}
+
+.text {
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+.fadeIn {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
+
   to {
-    transform: rotate(360deg);
+    opacity: 1;
   }
+}
+
+.author {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  background: var(--primary-main);
+  padding: 0.25em 0.5em;
+  border: none;
+  border-radius: 0.25em;
+  color: var(--white);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 1s ease-out;
+}
+
+.footer {
+  color: var(--always-white);
 }
